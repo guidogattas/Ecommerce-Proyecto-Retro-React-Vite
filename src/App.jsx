@@ -1,11 +1,13 @@
-import Header from "./components/Header";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
 
 
 const App = () => {
+
   return (
     <>
-      <Header />
-
+      <NavBar />
+      <ItemListContainer greeting='Bienvenido'/>
     </>
   );
 };
