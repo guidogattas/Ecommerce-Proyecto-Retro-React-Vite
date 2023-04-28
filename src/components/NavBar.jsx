@@ -1,6 +1,6 @@
 import LogoVintage from '../assets/images/Logo.png'
 import LogoUser from '../assets/images/user_svg_original.svg'
-import CartWidget from './Icons/CartWidget';
+import CartWidget from './CartWidget';
 
 
 const NavBar = () => {
@@ -9,6 +9,8 @@ const NavBar = () => {
     <img src={LogoVintage} className="w-40 h-40" alt="Imagen Logo Vintage" />
     <nav className='flex mr-auto gap-5'>
       <a href="#">Productos</a>
+      <a href="#">Remeras</a>
+      <a href="#">Buzos</a>
       <a href="#">Sobre Nosotros</a>
       <a href="#">Contacto</a>
     </nav>
