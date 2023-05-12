@@ -1,9 +1,9 @@
-import LogoVintage from '../assets/images/Logo.png'
-import LogoUser from '../assets/images/user_svg_original.svg'
+import LogoVintage from '../../assets/images/Logo.png'
+import LogoUser from '../../assets/images/user_svg_original.svg'
 import CartWidget from './CartWidget';
 
 
-const NavBar = () => {
+const NavBar = ({cantidad}) => {
   return (
     <div className='flex container bg-orange-200 mx-auto px-4 items-center'>
     <img src={LogoVintage} className="w-40 h-40" alt="Imagen Logo Vintage" />
@@ -16,7 +16,9 @@ const NavBar = () => {
     </nav>
     <div className='flex gap-4 items-center'>
       <button>
-        <CartWidget />
+        <CartWidget
+        cantidad={cantidad}
+        />
       </button>
       <img src={LogoUser} className="align-middle w-8 h-8" alt="Imagen Logo Usuario" />
     </div>

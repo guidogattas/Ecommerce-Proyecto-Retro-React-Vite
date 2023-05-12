@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-cantidad {
+    @apply py-2 px-4 rounded bg-blue-500 text-white;
+}
+
+.btn-cantidad:hover {
+    @apply py-2 px-4 rounded bg-blue-700 text-white;
+}
+
+.btn-addToCart {
+    @apply py-2 px-4 rounded bg-green-500 text-white;
+}
+
+.btn-addToCart:hover {
+    @apply py-2 px-4 rounded bg-green-700 text-white;
+}
+
+.btn-details {
+    @apply py-2 px-4 rounded bg-pink-500 text-white;
+}
+
+.btn-details:hover {
+    @apply py-2 px-4 rounded bg-pink-700 text-white;
+}

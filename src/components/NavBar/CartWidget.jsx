@@ -1,5 +1,4 @@
 const CartWidget = () => {
-  const itemCount = 10;
 
   return (
     <div>
@@ -10,7 +9,7 @@ const CartWidget = () => {
           fillRule="nonzero"
         />
       </svg>
-      <span>{itemCount}</span>
+      <span>0</span>
     </div>
   );
 };
