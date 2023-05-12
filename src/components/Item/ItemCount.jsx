@@ -6,6 +6,7 @@ const ItemCount = ({stock, addCart}) => {
     const [carrito, setCarrito] = useState([])
 
 
+    
 
     const sumar = () => {
         if (cantidad < stock) {
@@ -13,14 +14,13 @@ const ItemCount = ({stock, addCart}) => {
         }
         
 
-
-
     const restar = () => {
         if (cantidad > 1) {
             setCantidad(cantidad - 1);
         }
     };
 
+    
     return (
         <>
             <div className="text-center">
