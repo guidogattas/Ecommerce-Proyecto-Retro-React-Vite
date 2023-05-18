@@ -1,34 +1,25 @@
-import productos from "../../data/Productos";
+import data from "../../data/Data";
 import { useState, useEffect } from "react";
 import ItemDetail from "../Item/ItemDetail";
 
-
 function getItemData() {
-    return new Promise( (resolve)=>
-        setTimeout(()=>{
-                        /*find id en lugar de 0*/
-            resolve(productos[0]);
-
-        }, 2000));
-
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      /*find id en lugar de 0*/
+      resolve(data[0]);
+    }, 2000)
+  );
 }
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState('')
+  const [product, setProduct] = useState("");
 
-  useEffect(
-    () =>{
-      getItemData().then((respuesta) => {
-        setProduct(respuesta);
-      })
-    },[]); 
+  useEffect(() => {
+    getItemData().then((respuesta) => {
+      setProduct(respuesta);
+    });
+  }, []);
 
+  return <ItemDetail product={product} />;
+};
 
-  return (
-    <ItemDetail
-      product={product}
-    />
-
-  )
-}
-
-export default ItemDetailContainer
+export default ItemDetailContainer;

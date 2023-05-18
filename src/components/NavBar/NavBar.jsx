@@ -19,6 +19,7 @@ const NavBar = ({cantidad}) => {
         <CartWidget
         cantidad={cantidad}
         />
+        <span>0</span>
       </button>
       <img src={LogoUser} className="align-middle w-8 h-8" alt="Imagen Logo Usuario" />
     </div>

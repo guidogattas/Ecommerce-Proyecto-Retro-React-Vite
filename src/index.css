@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 .btn-cantidad {
-    @apply py-2 px-4 rounded bg-blue-500 text-white;
+    @apply py-2 px-4 rounded bg-midnight text-white;
 }
 
 .btn-cantidad:hover {
-    @apply py-2 px-4 rounded bg-blue-700 text-white;
+    @apply py-2 px-4 rounded bg-midnight contrast-75 text-white;
 }
 
 .btn-addToCart {
-    @apply py-2 px-4 rounded bg-green-500 text-white;
+    @apply py-2 px-4 rounded bg-dark-sea-green text-white;
 }
 
 .btn-addToCart:hover {
-    @apply py-2 px-4 rounded bg-green-700 text-white;
+    @apply py-2 px-4 rounded bg-dark-sea-green contrast-75 text-white;
 }
 
 .btn-details {
-    @apply py-2 px-4 rounded bg-pink-500 text-white;
+    @apply py-2 px-4 rounded bg-sage text-white;
 }
 
 .btn-details:hover {
-    @apply py-2 px-4 rounded bg-pink-700 text-white;
+    @apply py-2 px-4 rounded bg-sage contrast-75 text-white;
 }

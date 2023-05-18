@@ -9,7 +9,6 @@ const CartWidget = () => {
           fillRule="nonzero"
         />
       </svg>
-      <span>0</span>
     </div>
   );
 };
