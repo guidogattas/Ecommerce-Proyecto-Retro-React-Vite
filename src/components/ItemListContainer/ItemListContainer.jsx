@@ -1,7 +1,6 @@
 import data from "../../data/Data";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import ItemListContainer_Search from "./ItemListContainer_Search";
 
 
 function getData() {
@@ -29,9 +28,6 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <ItemListContainer_Search
-        products={products}
-      />
       <h1 className="mb-3 text-center font-extrabold">Catálogo</h1>
       <ItemList
       products={products}
