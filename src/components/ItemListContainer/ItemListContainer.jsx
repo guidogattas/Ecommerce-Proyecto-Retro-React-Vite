@@ -1,39 +1,35 @@
-import data from "../../data/Data";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import data from "../../data/Data";
 import ItemList from "./ItemList";
 
-
-function getData() {
-  return new Promise(
-    (resolve)=>{
-    setTimeout(()=>{
-      resolve(data);
-    }, 1000);
-  })
+function getData(categoryid) {
+  return new Promise((resolve) => {
+    if (categoryid) {
+      setTimeout(() =>
+        resolve(
+          data.filter(
+            (item) => item.category.toLowerCase() === categoryid.toLowerCase()
+          ),
+          1000
+        )
+      );
+    } else {
+      setTimeout(() => resolve(data), 1000);
+    }
+  });
 }
-
-
-
-const ItemListContainer = () => {
-
-  let [products, setProducts] = useState([])
+function ItemListContainer() {
+  let [products, setProducts] = useState([]);
+  const { categoryid } = useParams();
 
   useEffect(() => {
-    getData().then((respuesta)=>{
+    getData(categoryid).then((respuesta) => {
       setProducts(respuesta);
     });
+  }, [categoryid]);
 
-  }, []);
-
-
-  return (
-    <>
-      <h1 className="mb-3 text-center font-extrabold">Catálogo</h1>
-      <ItemList
-      products={products}
-      /> 
-    </>
-  );
-};
+  return <ItemList products={products} />;
+}
 
 export default ItemListContainer;

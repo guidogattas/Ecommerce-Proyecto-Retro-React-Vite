@@ -1,14 +1,16 @@
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ product }) => {
+
+const ItemDetail = ({ img, title, price, stock, description }) => {
   return (
     <>
-      <div className="mb-5 flex container mx-auto border-b-4 border-blue-400">
-        <img className="w-1/2" src={product.img} alt={product.title} />
-        <div className="m-auto content-center text-center text-xl">
-          <h1 className="text-3xl font-bold">{product.title}</h1>
-          <h3 className="m-2 text-2xl">${product.price}</h3>
-          <ItemCount />
+      <div className="container mx-auto mb-5 flex">
+        <img className="w-1/2" src={img} alt={title} />
+        <div className="flex flex-col gap-5 m-auto p-5 content-center text-center text-xl">
+          <h1 className="text-3xl font-bold">{title}</h1>
+          <h4>{description}</h4> 
+          <h3 className="m-2 text-2xl">${price}</h3>
+          <ItemCount stock={stock} />
         </div>
       </div>
     </>

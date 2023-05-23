@@ -1,17 +1,16 @@
 import { useState } from "react";
 import CartWidget from "../NavBar/CartWidget";
 
-const ItemCount = ({ stock, addCart }) => {
+const ItemCount = ({ stock }) => {
   const [cantidad, setCantidad] = useState(1);
-  const [carrito, setCarrito] = useState([]);
 
-  const sumar = () => {
+  const add = () => {
     if (cantidad < stock) {
       setCantidad(cantidad + 1);
     }
   };
 
-  const restar = () => {
+  const subtract = () => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
     }
@@ -20,26 +19,20 @@ const ItemCount = ({ stock, addCart }) => {
   return (
     <>
       <div className="text-center">
-        <button className="btn-cantidad" onClick={sumar}>
+        <button className="btn-cantidad" onClick={add}>
           +
         </button>
         <span className="m-1 px-4 text-lg">{cantidad}</span>
-        <button className="btn-cantidad" onClick={restar}>
+        <button className="btn-cantidad" onClick={subtract}>
           -
         </button>
         <br />
       </div>
       <div className="m-auto flex w-1/2 flex-col">
-        <button className="btn-details mt-2 text-base mx-auto container">Ver Detalles</button>
-        <button
-          className="btn-addToCart container mx-auto mt-2 flex justify-center text-sm gap-2 py-5"
-          // onClick={() => addCart(cantidad)}
-          // disabled={!stock}
-        >
-          <span>
+        <button className="btn-addToCart container mx-auto mt-2 flex justify-center gap-2 py-5 text-sm">
+          <span className="p-4">
             <CartWidget />
           </span>
-          <span>Agregar al Carrito</span>
         </button>
       </div>
     </>

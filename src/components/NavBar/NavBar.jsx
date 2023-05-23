@@ -1,31 +1,42 @@
-import LogoVintage from '../../assets/images/Logo.png'
-import LogoUser from '../../assets/images/user_svg_original.svg'
-import CartWidget from './CartWidget';
+import LogoVintage from "../../assets/images/Logo.png";
+import LogoUser from "../../assets/images/user_svg_original.svg";
+import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
-
-const NavBar = ({cantidad}) => {
+const NavBar = () => {
   return (
-    <div className='flex container bg-orange-200 mx-auto px-4 items-center'>
-    <img src={LogoVintage} className="w-40 h-40" alt="Imagen Logo Vintage" />
-    <nav className='flex mr-auto gap-5'>
-      <a href="#">Productos</a>
-      <a href="#">Remeras</a>
-      <a href="#">Buzos</a>
-      <a href="#">Sobre Nosotros</a>
-      <a href="#">Contacto</a>
-    </nav>
-    <div className='flex gap-4 items-center'>
-      <button>
-        <CartWidget
-        cantidad={cantidad}
+    <div className="flex items-center justify-between bg-orange-200 px-4 md:container md:mx-auto">
+      <Link to="/">
+        <img
+          src={LogoVintage}
+          className="md:h-40 w-40"
+          alt="Imagen Logo Vintage"
         />
-        <span>0</span>
-      </button>
-      <img src={LogoUser} className="align-middle w-8 h-8" alt="Imagen Logo Usuario" />
+      </Link>
+      <nav className="flex gap-4 mx-4 font-extrabold text-xl text-center group-hover:text-orange-700 md:mr-auto md:flex">
+        <Link to="/category/Remeras" className="hover:opacity-50">
+          Remeras
+        </Link>
+        <Link to="/category/Buzos" className="hover:opacity-50">
+          Buzos
+        </Link>
+        <Link to="/contacto" className="hover:opacity-50">
+          Contacto
+        </Link>
+      </nav>
+      <div className="mr-4 flex items-center gap-4">
+        <button>
+          <CartWidget />
+          <span>0</span>
+        </button>
+        <img
+          src={LogoUser}
+          className="h-8 w-8 align-middle"
+          alt="Imagen Logo Usuario"
+        />
+      </div>
     </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default NavBar
+export default NavBar;
