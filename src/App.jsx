@@ -10,7 +10,6 @@ import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation"
 import Footer from "./components/Footer/Footer";
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
 
-
 function App() {
   return (
     <CartContextProvider>
@@ -27,7 +26,7 @@ function App() {
             path="/order-confirmation/:orderid"
             element={<OrderConfirmation />}
           />
-                    <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="/checkout" element={<CheckoutForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>

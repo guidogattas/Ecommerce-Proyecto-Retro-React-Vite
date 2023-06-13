@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import CartWidget from "../NavBar/CartWidget";
 import { cartContext } from "../../context/cartContext";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
