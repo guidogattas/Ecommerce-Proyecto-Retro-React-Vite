@@ -1,40 +1,78 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "../NavBar/CartWidget";
+import { cartContext } from "../../context/cartContext";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ItemCount = ({ stock }) => {
-  const [cantidad, setCantidad] = useState(1);
+const ItemCount = ({ product, stock }) => {
+  let [count, setCount] = useState(1);
+
+  const { cart, addItem, removeItem } = useContext(cartContext);
+
+
+  const existingCartItem = cart.find((item) => item.id === product.id);
+  const initialCountInCart = existingCartItem ? existingCartItem.quantity : 0;
+  const [countInCart, setCountInCart] = useState(initialCountInCart);
+
+
+  const notify = () => toast("Producto Agregado");
 
   const add = () => {
-    if (cantidad < stock) {
-      setCantidad(cantidad + 1);
+    if (count < product.stock) {
+      setCount(count + 1);
     }
   };
 
   const subtract = () => {
-    if (cantidad > 1) {
-      setCantidad(cantidad - 1);
+    if (count > 1) {
+      setCount(count - 1);
     }
   };
 
+  function onAddToCart(count) {
+    addItem(product, count);
+    setCountInCart(count);
+  }
+
   return (
     <>
-      <div className="text-center">
-        <button className="btn-cantidad" onClick={add}>
-          +
-        </button>
-        <span className="m-1 px-4 text-lg">{cantidad}</span>
-        <button className="btn-cantidad" onClick={subtract}>
-          -
-        </button>
-        <br />
-      </div>
-      <div className="m-auto flex w-1/2 flex-col">
-        <button className="btn-addToCart container mx-auto mt-2 flex justify-center gap-2 py-5 text-sm">
-          <span className="p-4">
-            <CartWidget />
-          </span>
-        </button>
-      </div>
+      {countInCart === 0 ? (
+        <>
+          <div className="text-center">
+            <button className="btn-count" onClick={add}>
+              +
+            </button>
+            <span className="m-1 px-4 text-lg">{count}</span>
+            <button className="btn-count" onClick={subtract}>
+              -
+            </button>
+            <br />
+          </div>
+          <div className="m-auto flex w-1/2 flex-col">
+            <button
+              onClick={() => {
+                onAddToCart(count), notify();
+              }}
+              className="btn-addToCart py-10y mx-auto my-5 flex justify-center gap-2 text-[16px] font-bold"
+            >
+              Agregar al Carrito
+            </button>
+            <ToastContainer
+              autoClose={1000}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              transition={Flip}
+              theme="dark"
+              toastStyle={{ backgroundColor: "green" }}
+            />
+            <button onClick={() => removeItem(product.id)}>ELIMINAR</button>
+          </div>
+        </>
+      ) : (
+        <Link to="/cart">Ir al Carrito</Link>
+      )}
     </>
   );
 };

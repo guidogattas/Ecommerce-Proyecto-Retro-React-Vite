@@ -1,5 +1,4 @@
-import LogoVintage from "../../assets/images/Logo.png";
-import LogoUser from "../../assets/images/user_svg_original.svg";
+import LogoVintage from "../../../public/assets/images/Logo.png";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
@@ -9,11 +8,11 @@ const NavBar = () => {
       <Link to="/">
         <img
           src={LogoVintage}
-          className="md:h-40 w-40"
+          className="w-40 md:h-40"
           alt="Imagen Logo Vintage"
         />
       </Link>
-      <nav className="flex gap-4 mx-4 font-extrabold text-xl text-center group-hover:text-orange-700 md:mr-auto md:flex">
+      <nav className="mx-4 flex gap-4 text-center text-xl font-extrabold group-hover:text-orange-700 md:mr-auto md:flex">
         <Link to="/category/Remeras" className="hover:opacity-50">
           Remeras
         </Link>
@@ -25,15 +24,9 @@ const NavBar = () => {
         </Link>
       </nav>
       <div className="mr-4 flex items-center gap-4">
-        <button>
+        <Link to="/cart/" className="hover:opacity-50">
           <CartWidget />
-          <span>0</span>
-        </button>
-        <img
-          src={LogoUser}
-          className="h-8 w-8 align-middle"
-          alt="Imagen Logo Usuario"
-        />
+        </Link>
       </div>
     </div>
   );

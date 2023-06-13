@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-cantidad {
+.btn-count {
     @apply py-2 px-4 rounded bg-midnight text-white;
 }
 
-.btn-cantidad:hover {
+.btn-count:hover {
     @apply py-2 px-4 rounded bg-midnight contrast-75 text-white;
 }
 
 .btn-addToCart {
-    @apply py-2 px-4 rounded bg-dark-sea-green text-white;
+    @apply py-2 px-4 rounded bg-dark-sea-green text-white; 
 }
 
 .btn-addToCart:hover {
