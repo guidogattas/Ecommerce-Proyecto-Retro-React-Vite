@@ -19,7 +19,6 @@ function App() {
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/category/:categoryid" element={<ItemListContainer />} />
-          <Route path="*" element={<ErrorPageNotFound />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<CartView />} />
           <Route
@@ -27,6 +26,7 @@ function App() {
             element={<OrderConfirmation />}
           />
           <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="*" element={<ErrorPageNotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

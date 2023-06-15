@@ -6,16 +6,29 @@ import {Loader} from "../Loader/Loader";
 
 
 function ItemDetailContainer() {
+  const [errors, setErrors] = useState(null);
   const [product, setProduct] = useState(null);
 
   
   const { id } = useParams();
 
   useEffect(() => {
-    getItemData(id).then((respuesta) => {
-      setProduct(respuesta);
-    });
+    getItemData(id)
+      .then((respuesta) => {
+        setProduct(respuesta);
+      })
+      .catch((error) => {
+        setErrors(error.message);
+      });
   }, [id]);
+
+  if (errors)
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{errors}</p>
+      </div>
+    );
 
   if (product) {
     return <ItemDetail {...product} />;
