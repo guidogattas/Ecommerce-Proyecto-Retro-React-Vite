@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { createOrderWithStockUpdate } from "../Services/firebase";
 import { cartContext } from "../../context/cartContext";
 
-
-
 function CheckoutForm() {
   const { cart, countTotalPrice, clearCart } = useContext(cartContext);
 
@@ -27,9 +25,9 @@ function CheckoutForm() {
       price: countTotalPrice(),
     };
 
-
     try {
-      const id = name && phone && email ? await createOrderWithStockUpdate(order) : null;
+      const id =
+        name && phone && email ? await createOrderWithStockUpdate(order) : null;
 
       id
         ? (clearCart(), navigateTo(`/order-confirmation/${id}`))
@@ -51,7 +49,7 @@ function CheckoutForm() {
       <form>
         <div className="mb-4">
           <label htmlFor="name" className="mb-2 block text-sm font-bold">
-     S       Nombre y Apellido
+            Nombre y Apellido
           </label>
           <input
             type="text"

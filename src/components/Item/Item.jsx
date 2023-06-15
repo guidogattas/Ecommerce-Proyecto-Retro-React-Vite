@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const item = ({ id, title, img, price, stock }) => {
   const stickersClass =
-    "absolute top-0 left-0 mt-6 ml-2 p-3 px-4 rounded-lg bg-black font-bold";
+    "absolute top-0 left-0 mt-6 ml-6 p-3 px-4 rounded-lg font-bold";
 
   return (
     <>
@@ -15,7 +15,7 @@ const item = ({ id, title, img, price, stock }) => {
               className="inline-block aspect-square self-center object-cover"
             />
             {price < 7000 && (
-              <span className={`${stickersClass} left-0 ml-2 text-white`}>
+              <span className={`${stickersClass} left-0 ml-2 bg-green-800 text-white`}>
                 OFERTA!
               </span>
             )}

@@ -1,8 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
-import { ToastContainer, toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ItemCount = ({ product }) => {
   let [count, setCount] = useState(1);
@@ -21,10 +19,6 @@ const ItemCount = ({ product }) => {
     if (count > 1) {
       setCount(count - 1);
     }
-  };
-
-  const notify = () => {
-    toast("Producto/s Agregado/s al Carrito");
   };
 
   function onAddToCart(count) {
@@ -50,7 +44,6 @@ const ItemCount = ({ product }) => {
 
             <button
               onClick={() => {
-                notify();
                 onAddToCart(count);
               }}
               className="btn-addToCart py-10y mx-auto my-5 flex justify-center gap-2 text-[16px] font-bold"
