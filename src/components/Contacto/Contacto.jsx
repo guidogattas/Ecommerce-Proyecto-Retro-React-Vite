@@ -1,15 +1,21 @@
 import { useState } from "react";
 
 const ContactComponent = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const { name, email, message } = formData;
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setName("");
-    setEmail("");
-    setMessage("");
+    setFormData({ name: "", email: "", message: "" });
     Swal.fire({
       title: "Mensaje Enviado",
       icon: "success",
@@ -17,10 +23,9 @@ const ContactComponent = () => {
     })
   };
 
-  const classLabel = "block text-md font-bold text-gray-700"
-  const classInput = "w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
-
-
+  const classLabel = "block text-md font-bold text-gray-700";
+  const classInput =
+    "w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500";
 
   return (
     <div className="container mx-auto p-6 bg-white rounded-lg shadow-md">
@@ -33,9 +38,10 @@ const ContactComponent = () => {
           <input
             type="text"
             id="name"
+            name="name"
             className={classInput}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleChange}
             required
           />
         </div>
@@ -46,9 +52,10 @@ const ContactComponent = () => {
           <input
             type="email"
             id="email"
+            name="email"
             className={classInput}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
             required
           />
         </div>
@@ -58,9 +65,10 @@ const ContactComponent = () => {
           </label>
           <textarea
             id="message"
+            name="message"
             className={classInput}
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={handleChange}
             rows={10}
             required
           />

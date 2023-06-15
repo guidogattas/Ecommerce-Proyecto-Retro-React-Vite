@@ -49,12 +49,7 @@ const ItemCount = ({ product }) => {
               className="btn-addToCart py-10y mx-auto my-5 flex justify-center gap-2 text-[16px] font-bold"
             >
               Agregar al Carrito
-              <ToastContainer
-              autoClose={1000}
-              transition={Flip}
-              theme="dark"
-              toastStyle={{ backgroundColor: "green" }}
-            />
+
             </button>
 
           </div>
