@@ -1,4 +1,4 @@
-import LogoVintage from "../../../public/assets/images/Logo.png";
+import LogoVintage from "/assets/images/Logo.png";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 

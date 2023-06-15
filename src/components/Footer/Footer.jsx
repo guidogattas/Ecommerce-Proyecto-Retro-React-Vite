@@ -1,37 +1,45 @@
-import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 export default function Footer() {
   return (
-    <div className="flex justify-center container">
-      <Container maxWidth="sm">
-        <Typography align="center">
-          "Copyright © "{new Date().getFullYear()}"
-        </Typography>
-        
-      </Container>
-      <Grid item xs={12} sm={4}>
-            <Typography variant="h6" color="text.primary" gutterBottom>
-              Follow Us
-            </Typography>
-            <Link href="https://www.facebook.com/" color="inherit">
-              <Facebook />
-            </Link>
-            <Link
-              href="https://www.instagram.com/"
-              color="inherit"
-              sx={{ pl: 1, pr: 1 }}
-            >
-              <Instagram />
-            </Link>
-            <Link href="https://www.twitter.com/" color="inherit">
-              <Twitter />
-            </Link>
-          </Grid>
+    <div className="bg-gray-800 mt-10 py-8 container mx-auto">
+      <div className="mx-auto flex flex-col justify-center items-center">
+        <div className="max-w-sm text-center">
+          <p className="text-white text-sm">
+            &copy; {new Date().getFullYear()} Todos los derechos reservados.
+          </p>
+        </div>
+        <div className="flex justify-center items-center">
+          <p className="text-white text-sm mr-4">Seguinos:</p>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white mr-2"
+          >
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white mr-2"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a
+            href="https://www.twitter.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white"
+          >
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

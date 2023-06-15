@@ -1,30 +1,48 @@
 import { Link } from "react-router-dom";
 
 const item = ({ id, title, img, price, stock }) => {
+  const stickersClass =
+    "absolute top-0 left-0 mt-6 ml-2 p-3 px-4 rounded-lg bg-black font-bold";
+
   return (
     <>
-      <div className="m-0 my-0 mb-4 block  h-auto">
+      <div className="relative m-0 my-0 mb-4 block h-auto">
         <div className="text-center">
-          <div>
-            <img src={img} alt="" className="aspect-square object-cover self-center inline-block" />
+          <div className="relative">
+            <img
+              src={img}
+              alt=""
+              className="inline-block aspect-square self-center object-cover"
+            />
+            {price < 7000 && (
+              <span className={`${stickersClass} left-0 ml-2 text-white`}>
+                OFERTA!
+              </span>
+            )}
+            {stock === 0 ? (
+              <span className={`${stickersClass} bg-gray-500 text-white` }>NO HAY STOCK!</span>
+            ) : (
+              stock < 3 && (
+                <span className={`${stickersClass} bg-red-700 text-white` }>ULTIMAS UNIDADES!</span>
+              )
+            )}
           </div>
           <h1 className="font-black">{title}</h1>
-          { price < 7000 ?
-          <>
-          <h3>${price}</h3>
-          <span className="text-green-700">OFERTA!</span>
-          </>
-          :
-          <h3>${price} </h3>
-        }
-        {
-        stock < 2 && <span className="text-red-500">ULTIMAS UNIDADES!</span>
-      }
+          {price < 7000 ? (
+            <>
+              <h3>${price}</h3>
+            </>
+          ) : (
+            <h3>${price} </h3>
+          )}
         </div>
 
         <div className="m-auto flex w-1/2 flex-col">
-          <Link className="btn-details text-center container mx-auto mt-2 text-base" to={`/product/${id}`}>
-              Ver Detalles
+          <Link
+            className="btn-details container mx-auto mt-2 text-center text-base"
+            to={`/product/${id}`}
+          >
+            Ver Detalles
           </Link>
         </div>
       </div>

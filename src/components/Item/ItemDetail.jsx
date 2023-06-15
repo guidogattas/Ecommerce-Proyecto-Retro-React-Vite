@@ -1,7 +1,9 @@
+import { SpaRounded } from "@mui/icons-material";
 import ItemCount from "./ItemCount";
 
 
 const ItemDetail = (product) => {
+
 
   return (
     <>
@@ -11,7 +13,11 @@ const ItemDetail = (product) => {
           <h1 className="text-3xl font-bold">{product.title}</h1>
           <h4>{product.description}</h4> 
           <h3 className="m-2 text-2xl">${product.price}</h3>
+          {product.stock === 0 ? 
+          <span>NO HAY STOCK</span>
+          :
           <ItemCount product={product} />
+}
         </div>
       </div>
     </>

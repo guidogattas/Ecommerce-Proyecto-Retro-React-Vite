@@ -1,15 +1,23 @@
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
-import CheckoutForm from "../CheckoutForm/CheckoutForm"
-
-
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 export const CartView = () => {
   const { cart, removeItem, countTotalPrice, clearCart } = useContext(cartContext);
   const totalPrice = countTotalPrice();
 
+  const notify = () => {
+    toast("Producto Eliminado");
+  };
 
-
+  <ToastContainer
+  autoClose={1000}
+  transition={Flip}
+  theme="dark"
+  toastStyle={{ backgroundColor: "red" }}
+/>
 
   if (cart.length > 0) {
     return (
@@ -40,7 +48,10 @@ export const CartView = () => {
                 <td>
                   <button
                     className="rounded-full bg-red-500 px-4 text-white"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => {
+                      removeItem(item.id);
+                      notify();
+                    }}
                   >
                     X
                   </button>
@@ -52,17 +63,17 @@ export const CartView = () => {
         </table>
         <div className="container mt-[35px] w-full text-right mr-10 leading-[1.5em] text-midnight">
           <h4>TOTAL A PAGAR: $ {totalPrice}</h4>
-
         </div>
-          <CheckoutForm cart={cart} totalPrice={totalPrice} clearCart={clearCart} />
+
+        <CheckoutForm cart={cart} totalPrice={totalPrice} clearCart={clearCart} />
       </div>
     );
-  } 
-  else {
+  } else {
     return (
-      <h2 className="mt-5 flex justify-center text-center text-xl font-black">
+      <h2 className="mt-10 flex justify-center text-center text-xl font-black">
         CARRITO VACÍO👽
       </h2>
     );
   }
 };
+

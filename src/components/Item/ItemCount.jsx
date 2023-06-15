@@ -4,18 +4,12 @@ import { cartContext } from "../../context/cartContext";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ItemCount = ({ product, stock }) => {
+const ItemCount = ({ product }) => {
   let [count, setCount] = useState(1);
-
-  const { cart, addItem, removeItem } = useContext(cartContext);
-
-
+  const { cart, addItem } = useContext(cartContext);
   const existingCartItem = cart.find((item) => item.id === product.id);
   const initialCountInCart = existingCartItem ? existingCartItem.quantity : 0;
   const [countInCart, setCountInCart] = useState(initialCountInCart);
-
-
-  const notify = () => toast("Producto Agregado");
 
   const add = () => {
     if (count < product.stock) {
@@ -27,6 +21,10 @@ const ItemCount = ({ product, stock }) => {
     if (count > 1) {
       setCount(count - 1);
     }
+  };
+
+  const notify = () => {
+    toast("Producto/s Agregado/s al Carrito");
   };
 
   function onAddToCart(count) {
@@ -49,24 +47,23 @@ const ItemCount = ({ product, stock }) => {
             <br />
           </div>
           <div className="m-auto flex w-1/2 flex-col">
+
             <button
               onClick={() => {
-                onAddToCart(count), notify();
+                notify();
+                onAddToCart(count);
               }}
               className="btn-addToCart py-10y mx-auto my-5 flex justify-center gap-2 text-[16px] font-bold"
             >
               Agregar al Carrito
-            </button>
-            <ToastContainer
+              <ToastContainer
               autoClose={1000}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
               transition={Flip}
               theme="dark"
               toastStyle={{ backgroundColor: "green" }}
             />
-            <button onClick={() => removeItem(product.id)}>ELIMINAR</button>
+            </button>
+
           </div>
         </>
       ) : (
