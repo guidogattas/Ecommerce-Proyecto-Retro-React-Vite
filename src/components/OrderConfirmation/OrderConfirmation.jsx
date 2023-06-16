@@ -71,7 +71,7 @@ function OrderConfirmation() {
             </div>
           )}
         </div>
-      <BackToMain />
+        <BackToMain />
       </div>
     </>
   );

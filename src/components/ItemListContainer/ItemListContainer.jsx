@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import Hero from "../Hero/Hero"
-import {getData, getCategoryData} from "../Services/firebase"
-
-
-
+import Hero from "../Hero/Hero";
+import { getData, getCategoryData } from "../Services/firebase";
 
 function ItemListContainer() {
   let [products, setProducts] = useState([]);
@@ -21,9 +18,10 @@ function ItemListContainer() {
 
   return (
     <>
-  <Hero/>
-  <ItemList products={products} />;
-  </>)
+      <Hero />
+      <ItemList products={products} />;
+    </>
+  );
 }
 
 export default ItemListContainer;

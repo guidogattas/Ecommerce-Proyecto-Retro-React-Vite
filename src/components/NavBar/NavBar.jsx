@@ -8,11 +8,11 @@ const NavBar = () => {
       <Link to="/">
         <img
           src={LogoVintage}
-          className="w-40 md:h-40"
+          className="min-w-40 md:h-40"
           alt="Imagen Logo Vintage"
         />
       </Link>
-      <nav className="mx-4 flex gap-4 text-center text-xl font-extrabold group-hover:text-orange-700 md:mr-auto md:flex">
+      <nav className="mx-4 flex gap-4 text-center text-sm md:text-xl font-extrabold group-hover:text-orange-700 md:mr-auto md:flex">
         <Link to="/category/Remeras" className="hover:opacity-50">
           Remeras
         </Link>
