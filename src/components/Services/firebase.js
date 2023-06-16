@@ -38,7 +38,12 @@ export async function getData() {
 export async function getItemData(idUrl) {
   const docRef = doc(db, "products", idUrl);
   const docSnap = await getDoc(docRef);
-  return { id: docSnap.id, ...docSnap.data() };
+
+  if (docSnap.exists()) {
+    return { id: docSnap.id, ...docSnap.data() };
+  } else {
+    return null;
+  }
 }
 
 export async function getCategoryData(idCategory) {

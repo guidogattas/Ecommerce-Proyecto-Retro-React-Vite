@@ -8,12 +8,23 @@ function CheckoutForm() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [emailConfirmation, setEmailConfirmation] = useState("");
   const [phone, setPhone] = useState("");
 
   const navigateTo = useNavigate();
 
   async function handleConfirm(e) {
     e.preventDefault();
+
+    if (email !== emailConfirmation) {
+      Swal.fire({
+        title: "Los correos electrónicos no coinciden",
+        icon: "error",
+        confirmButtonText: "Continuar",
+      });
+      return;
+    }
+
     const order = {
       items: cart,
       buyer: {
@@ -32,7 +43,7 @@ function CheckoutForm() {
       id
         ? (clearCart(), navigateTo(`/order-confirmation/${id}`))
         : Swal.fire({
-            title: "Faltan Completar Datos",
+            title: "Faltan completar datos",
             icon: "error",
             confirmButtonText: "Continuar",
           });
@@ -72,6 +83,23 @@ function CheckoutForm() {
             className="w-full rounded border border-gray-300 px-3 py-2"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="emailConfirmation"
+            className="mb-2 block text-sm font-bold"
+          >
+            Confirmar Correo Electrónico
+          </label>
+          <input
+            type="email"
+            id="emailConfirmation"
+            placeholder="juanperez@mail.com"
+            className="w-full rounded border border-gray-300 px-3 py-2"
+            value={emailConfirmation}
+            onChange={(event) => setEmailConfirmation(event.target.value)}
             required
           />
         </div>

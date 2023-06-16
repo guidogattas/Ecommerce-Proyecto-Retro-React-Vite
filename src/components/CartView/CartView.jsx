@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { Link } from "react-router-dom";
 
 export const CartView = () => {
-  const { cart, removeItem, countTotalPrice, clearCart } =
-    useContext(cartContext);
+  const { cart, removeItem, countTotalPrice, clearCart } = useContext(cartContext);
   const totalPrice = countTotalPrice();
-
 
   if (cart.length > 0) {
     return (
@@ -62,9 +61,15 @@ export const CartView = () => {
     );
   } else {
     return (
-      <h2 className="mt-10 flex justify-center text-center text-xl font-black">
-        CARRITO VACÍO👽
-      </h2>
+      <div className="container mx-auto mt-10 flex flex-col justify-center">
+        <h2 className="text-center text-xl font-black">CARRITO VACÍO👽</h2>
+        <Link
+          className="text-white; mx-auto mt-8 rounded bg-lime-500 px-4 py-2 text-center"
+          to={`/`}
+        >
+          VOLVER
+        </Link>
+      </div>
     );
   }
 };

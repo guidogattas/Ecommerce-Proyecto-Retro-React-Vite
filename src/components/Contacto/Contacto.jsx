@@ -17,7 +17,8 @@ const ContactComponent = () => {
     e.preventDefault();
     setFormData({ name: "", email: "", message: "" });
     Swal.fire({
-      title: "Mensaje Enviado",
+      title: `Mensaje Enviado.
+      Gracias ${name}!`,
       icon: "success",
       confirmButtonText: "Continuar",
     })
