@@ -1,10 +1,11 @@
+import { BackToMain } from "../BackToMain/BackToMain";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = (product) => {
   return (
     <>
       <div className="container col-span-2 mx-auto mb-5 flex flex-col md:flex-row">
-        <img className="md:w-1/2" src={product.img} alt={product.title} />
+        <img className="md:w-1/2 max-h-[680px]" src={product.img} alt={product.title} />
         <div className="m-auto flex flex-col content-center gap-5 p-5 text-center text-xl">
           <h1 className="text-3xl font-bold">{product.title}</h1>
           <h4>{product.description}</h4>
@@ -14,6 +15,7 @@ const ItemDetail = (product) => {
           ) : (
             <ItemCount product={product} />
           )}
+        <BackToMain/>
         </div>
       </div>
     </>

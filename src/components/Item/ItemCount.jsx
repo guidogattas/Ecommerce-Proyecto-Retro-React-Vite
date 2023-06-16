@@ -31,12 +31,12 @@ const ItemCount = ({ product }) => {
       {countInCart === 0 ? (
         <>
           <div className="text-center">
-            <button className="btn-count" onClick={add}>
-              +
-            </button>
-            <span className="m-1 px-4 text-lg">{count}</span>
             <button className="btn-count" onClick={subtract}>
               -
+            </button>
+            <span className="m-1 px-4 text-lg">{count}</span>
+            <button className="btn-count" onClick={add}>
+              +
             </button>
             <br />
           </div>

@@ -12,7 +12,7 @@ const item = ({ id, title, img, price, stock }) => {
             <img
               src={img}
               alt=""
-              className="inline-block aspect-square self-center object-cover"
+              className="inline-block max-h-[480px] "
             />
             {price < 7000 && (
               <span className={`${stickersClass} left-0 ml-2 bg-green-800 text-white`}>
