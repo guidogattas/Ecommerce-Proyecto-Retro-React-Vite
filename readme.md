@@ -2,6 +2,8 @@
 
 Bienvenid@s a mi proyecto de React de CoderHouse. En este repositorio encontrarás un e-commerce de venta de remeras y buzos. El sitio web cuenta con un carrito de compras donde los usuarios pueden agregar productos, así como un proceso de checkout que utiliza Firebase para gestionar las transacciones de forma segura.
 
+https://ecommerce-proyecto-retro-react-vite.vercel.app/
+
 # Estructura del proyecto
 
 El proyecto sigue una estructura de componentes reutilizables y utiliza React para construir la interfaz de usuario. A continuación se muestra la estructura básica del proyecto:
