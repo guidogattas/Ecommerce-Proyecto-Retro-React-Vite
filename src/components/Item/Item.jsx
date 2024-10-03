@@ -5,14 +5,14 @@ const Item = ({ id, title, img, price, stock }) => {
     "absolute top-0 left-0 mt-6 ml-6 p-3 px-4 rounded-lg font-bold";
 
   return (
-    <div className="relative block h-auto m-0 my-6 mb-8">
+    <div className="relative block h-auto my-6 mb-8 overflow-hidden">
       <div className="text-center">
         <div className="relative">
-          <div className="h-[400px] w-full overflow-hidden">
+          <div className="h-[400px] w-auto overflow-hidden">
             <img
               src={img}
-              alt=""
-              className="object-cover w-full h-full" 
+              alt={title}
+              className="object-cover w-full h-full"
             />
           </div>
           {price < 7000 && (
@@ -29,12 +29,12 @@ const Item = ({ id, title, img, price, stock }) => {
           )}
         </div>
         <h1 className="font-black">{title}</h1>
-        <h3>${price} </h3>
+        <h3>${price}</h3>
       </div>
 
-      <div className="flex flex-col w-1/2 m-auto">
+      <div className="flex justify-center mt-2">
         <Link
-          className="container mx-auto mt-2 text-base text-center btn-details"
+          className="text-base text-center btn-details"
           to={`/product/${id}`}
         >
           Ver Detalles
