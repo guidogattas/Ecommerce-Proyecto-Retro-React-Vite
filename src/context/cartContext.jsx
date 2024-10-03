@@ -29,7 +29,9 @@ export function CartContextProvider({ children }) {
     return totalPrice;
   }
 
-  function clearCart () {setCart([])};
+  function clearCart () {
+	setCart([])
+};
 
 
   function removeItem(idDelete) {
